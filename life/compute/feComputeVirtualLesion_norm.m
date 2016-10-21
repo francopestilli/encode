@@ -101,7 +101,7 @@ rmse_wVL        = sqrt(mean((measured - predicted_VL).^2,1));
 
 % We normalize the rmse by the S0 (non-diffusion measurement)
 switch varargin
-    case {length(varargin)==1, 'norm'}
+    case length(varargin)==1
       rmse_woVL = rmse_woVL./S0';
       rmse_wVL  = rmse_wVL./S0';
     otherwise
