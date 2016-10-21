@@ -7,8 +7,10 @@ function [ rmse_wVL, rmse_woVL, nFib_tract, nFib_PN, nVoxels] = feComputeVirtual
 % fe: fe structure
 % ind1: indices to fibers in the tract to be virtually lesioned
 %
-%  Copyright (2016), Franco Pestilli (Indiana University) - Cesar F. Caiafa (CONICET)
-%  email: frakkopesto@gmail.com and ccaiafa@gmail.com
+% 
+%  Copyright (2016),   Franco Pestilli       | Cesar F. Caiafa
+%  Indiana University, frakkopesto@gmail.com | ccaiafa@gmail.com
+
 
 % ind_nnz = find(fe.life.fit.weights);
 % ind_tract = ind_nnz(ind1);
