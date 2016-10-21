@@ -83,7 +83,6 @@ predicted_woVL =  reshape(M_times_w(M.Phi.subs(:,1), ...
                                     nTheta, ...
                                     nVoxels), ...
                                     size(measured));
-
 rmse_woVL = sqrt(mean((measured - predicted_woVL).^2,1));
 
 % Compute the RMSE after removing the tract of interest fascicles 
@@ -99,12 +98,11 @@ predicted_VL    = reshape(M_times_w(M.Phi.subs(:,1), ...
                                     size(measured));
 rmse_wVL        = sqrt(mean((measured - predicted_VL).^2,1));
 
-% We normalize the rmse by the S0 (non-diffusion measurement)
-switch varargin
-    case length(varargin)==1
+% By default we normalize the rmse by the S0 (non-diffusion measurement)
+if ~(length(varargin)==1)
       rmse_woVL = rmse_woVL./S0';
       rmse_wVL  = rmse_wVL./S0';
-    otherwise
+else
       disp('[feComputeVirtualLesion] Error not normalized by S0')
 end
 
