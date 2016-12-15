@@ -1282,7 +1282,10 @@ switch param
   case {'voxrmses0norm'}
       % A volume of RMSE normalized by the S0 value in each voxel.
       rmse = feGet(fe,'vox rmse');
-      s0   = feGet(fe,'b0signalimage')';
+      % s0   = feGet(fe,'b0signalimage')';
+      s0   = mean(feGet(fe,'b0signalimage'),2)';
+
+      
       % Some voxels can have a S0=0. We replace the S0 in these voxles with
       % a NaN. 
       idx = (s0 == 0);
